@@ -32,3 +32,11 @@ export function qs(selector: string): HTMLElement {
 export function addToParents({ selector, child }: { selector: HTMLElement, child: HTMLElement }): HTMLElement{
   return selector.appendChild(child)
 }
+
+export function qsa(selector: string): Element[] {
+  return [...document.querySelectorAll(selector)]
+}
+
+export function clearSelector({ selector }: { selector: HTMLElement}): string {
+  return selector.textContent = ''
+}

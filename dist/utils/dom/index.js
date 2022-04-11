@@ -20,3 +20,9 @@ export function qs(selector) {
 export function addToParents({ selector, child }) {
     return selector.appendChild(child);
 }
+export function qsa(selector) {
+    return [...document.querySelectorAll(selector)];
+}
+export function clearSelector({ selector }) {
+    return selector.textContent = '';
+}

@@ -34,6 +34,8 @@ body {
   border: 1px solid black;
   transition: background 0.3s ease-in-out;
   cursor: pointer;
+  width: 200px;
+  margin: 0 auto;
 }
 
 .container button:hover {
