@@ -1,4 +1,6 @@
-export function counter() {
+import type { Counter } from "../types/Counter"
+
+export function counter(): Counter {
   let count = 0
 
   function increment(): number {

@@ -1,12 +1,12 @@
 import { end } from '../../components/end.js';
 import { nextAnswer } from '../../utils/game/nextAnswer.js';
 import { isGame } from '../../utils/game/isGame.js';
-import { quizObj } from '../../gameObj.js';
-export function buttonCallback({ gameState, answer, selector, isWinner = false }) {
+import { quizObj } from '../../quizObj.js';
+export function buttonCallback({ userStats, answer, selector, isWinner }) {
     if (isWinner) {
-        gameState.increment();
+        userStats.increment();
     }
-    return isGame({ currentGame: answer.getCount(), quizObj })
-        ? nextAnswer({ currentStats: gameState, currentAnswer: answer, selector })
-        : end({ selector, stats: { allAnswers: answer, yourResult: gameState } });
+    return isGame({ game: answer.getCount(), quizObj })
+        ? nextAnswer({ userStats, answer, selector })
+        : end({ selector, stats: { answers: answer, userStats } });
 }

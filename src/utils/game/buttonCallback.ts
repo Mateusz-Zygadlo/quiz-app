@@ -1,23 +1,23 @@
 import { end } from '../../components/end.js'
 import { nextAnswer } from '../../utils/game/nextAnswer.js';
 import { isGame } from '../../utils/game/isGame.js';
-import { quizObj } from '../../gameObj.js'
+import { quizObj } from '../../quizObj.js'
 
-import type { GameStateProps } from '../../interfaces/CurrentCount.js'
+import type { Counter } from '../../types/Counter.js'
 
 interface ButtonCallbackProps {
-  gameState: GameStateProps;
-  answer: GameStateProps;
+  userStats: Counter;
+  answer: Counter;
   selector: HTMLElement;
   isWinner: boolean;
 }
 
-export function buttonCallback({ gameState, answer, selector, isWinner = false }: ButtonCallbackProps): void {
+export function buttonCallback({ userStats, answer, selector, isWinner }: ButtonCallbackProps): void {
   if(isWinner){
-    gameState.increment()
+    userStats.increment()
   }
   
-  return isGame({ currentGame: answer.getCount(), quizObj}) 
-    ? nextAnswer({ currentStats: gameState, currentAnswer: answer, selector })
-    : end({ selector, stats: { allAnswers: answer, yourResult: gameState } })
+  return isGame({ game: answer.getCount(), quizObj}) 
+    ? nextAnswer({ userStats, answer, selector })
+    : end({ selector, stats: { answers: answer, userStats } })
 }

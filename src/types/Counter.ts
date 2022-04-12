@@ -1,4 +1,4 @@
-export interface GameStateProps {
+export type Counter = {
   increment: () => number;
   setCount: (num: number) => number;
   reset: () => void;

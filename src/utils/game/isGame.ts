@@ -1,10 +1,10 @@
 import type { QuizObjType } from '../../types/QuizObj.js'
 
 interface IsGameProps {
-  currentGame: number;
+  game: number;
   quizObj: QuizObjType;
 }
 
-export function isGame({ currentGame, quizObj }: IsGameProps): boolean {
-  return !!quizObj[currentGame + 1]
+export function isGame({ game, quizObj }: IsGameProps): boolean {
+  return !!quizObj[game + 1]
 }

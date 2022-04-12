@@ -1,3 +1,7 @@
-export function clearSelector({ selector }: { selector: HTMLElement}): string {
+interface ClearSelectorProps {
+  selector: HTMLElement;
+}
+
+export function clearSelector({ selector }: ClearSelectorProps): string {
   return selector.textContent = ''
 }

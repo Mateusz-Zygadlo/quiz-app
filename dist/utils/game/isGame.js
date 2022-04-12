@@ -1,3 +1,3 @@
-export function isGame({ currentGame, quizObj }) {
-    return !!quizObj[currentGame + 1];
+export function isGame({ game, quizObj }) {
+    return !!quizObj[game + 1];
 }

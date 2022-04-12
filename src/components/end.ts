@@ -2,23 +2,23 @@ import { clearSelector } from '../utils/dom/clearSelector.js'
 import { addToParent } from '../utils/dom/addToParent.js'
 import { createElement } from '../utils/dom/createElement.js'
 import { welcome } from '../components/welcome.js'
-import type { GameStateProps } from '../interfaces/CurrentCount.js'
+import type { Counter } from '../types/Counter.js'
 
 interface EndProps {
   selector: HTMLElement;
   stats: {
-    allAnswers: GameStateProps;
-    yourResult: GameStateProps;
+    answers: Counter;
+    userStats: Counter;
   }
 }
 
-export function end({ selector, stats: { allAnswers, yourResult} }: EndProps) {
+export function end({ selector, stats: { answers, userStats} }: EndProps) {
   clearSelector({ selector })
   
   const h1 = createElement({
     type: 'h1',
     options: {
-      content: `Your result is: ${yourResult.getCount()}/${allAnswers.getCount() + 1}`
+      content: `Your result is: ${userStats.getCount()}/${answers.getCount() + 1}`
     }
   });
   const button = createElement({
@@ -29,7 +29,7 @@ export function end({ selector, stats: { allAnswers, yourResult} }: EndProps) {
     }
   })
 
-  button.addEventListener('click', () => welcome({ selector,  currentAnswer: allAnswers, currentStats: yourResult}))
+  button.addEventListener('click', () => welcome({ selector,  answer: answers, userStats }))
 
   addToParent({ selector, child: h1 })
   addToParent({ selector, child: button })

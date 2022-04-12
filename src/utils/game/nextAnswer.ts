@@ -1,18 +1,18 @@
-import type { GameStateProps } from '../../interfaces/CurrentCount.js'
+import type { Counter } from '../../types/Counter.js'
 import { game } from '../../components/game.js'
 
 interface NextAnswerProps {
-  currentStats: GameStateProps;
-  currentAnswer: GameStateProps;
+  userStats: Counter;
+  answer: Counter;
   selector: HTMLElement;
 }
 
-export function nextAnswer({ currentStats, currentAnswer, selector }: NextAnswerProps) {
-  currentAnswer.increment()
+export function nextAnswer({ userStats, answer, selector }: NextAnswerProps) {
+  answer.increment()
   
   return game({
     selector,
-    answer: currentAnswer,
-    gameState: currentStats,
+    answer,
+    userStats,
   })
 }
