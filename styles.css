@@ -50,7 +50,7 @@ body {
 }
 
 .quiz-grid button.loser {
-  background-color: pink;
+  background-color: red;
 }
 
 .quiz-grid button.winner {

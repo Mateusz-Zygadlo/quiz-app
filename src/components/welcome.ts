@@ -1,4 +1,5 @@
 import type { Counter } from '../types/Counter.js'
+import type { QuizObjType } from '../types/QuizObj.js';
 import { clearSelector } from '../utils/dom/clearSelector.js'
 import { addToParent } from '../utils/dom/addToParent.js'
 import { game } from './game.js';
@@ -8,9 +9,10 @@ interface WelcomeProps {
   selector: HTMLElement;
   answer: Counter;
   userStats: Counter;
+  quizObj: QuizObjType;
 }
 
-export function welcome({ selector, answer, userStats }: WelcomeProps) {
+export function welcome({ selector, answer, userStats, quizObj }: WelcomeProps) {
   clearSelector({ selector })
   answer.reset()
   userStats.reset()
@@ -34,6 +36,7 @@ export function welcome({ selector, answer, userStats }: WelcomeProps) {
       selector, 
       answer, 
       userStats, 
+      quizObj
     })
   })
 

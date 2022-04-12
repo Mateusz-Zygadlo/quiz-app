@@ -7,10 +7,6 @@ export function counter(): Counter {
     return count += 1
   }
 
-  function setCount(num: number): number {
-    return count = num
-  }
-
   function reset(): void {
     count = 0
   }
@@ -21,7 +17,6 @@ export function counter(): Counter {
 
   return {
     increment,
-    setCount,
     reset,
     getCount
   }

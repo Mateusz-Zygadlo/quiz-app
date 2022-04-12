@@ -1,13 +1,12 @@
 import { clearSelector } from '../utils/dom/clearSelector.js';
 import { timer } from '../utils/game/timer.js';
 import { qsa } from '../utils/dom/qsa.js';
-import { quizObj } from '../quizObj.js';
 import { addToParent } from '../utils/dom/addToParent.js';
 import { assignmentToGroups } from '../utils/game/assignmentToGroups.js';
 import { buttonCallback } from '../utils/game/buttonCallback.js';
 import { createElement } from '../utils/dom/createElement.js';
 import { addClass } from '../utils/css/addClass.js';
-export function game({ selector, answer, userStats }) {
+export function game({ selector, answer, userStats, quizObj }) {
     clearSelector({ selector });
     const h1 = createElement({
         type: 'h1',
@@ -45,18 +44,19 @@ export function game({ selector, answer, userStats }) {
         time: 10,
         userStats,
         answer,
-        selector
+        selector,
+        quizObj
     });
     winner.addEventListener('click', () => {
         getTimer.clear();
         addClass({ selector: winner, name: 'winner' });
-        buttonCallback({ userStats, answer, selector, isWinner: true });
+        buttonCallback({ userStats, answer, selector, isWinner: true, quizObj });
     });
     losers.forEach((button) => {
         button.addEventListener('click', () => {
             getTimer.clear();
             addClass({ selector: button, name: 'loser' });
-            buttonCallback({ userStats, answer, selector, isWinner: false });
+            buttonCallback({ userStats, answer, selector, isWinner: false, quizObj });
         });
     });
 }

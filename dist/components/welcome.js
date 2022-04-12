@@ -2,7 +2,7 @@ import { clearSelector } from '../utils/dom/clearSelector.js';
 import { addToParent } from '../utils/dom/addToParent.js';
 import { game } from './game.js';
 import { createElement } from '../utils/dom/createElement.js';
-export function welcome({ selector, answer, userStats }) {
+export function welcome({ selector, answer, userStats, quizObj }) {
     clearSelector({ selector });
     answer.reset();
     userStats.reset();
@@ -24,6 +24,7 @@ export function welcome({ selector, answer, userStats }) {
             selector,
             answer,
             userStats,
+            quizObj
         });
     });
     addToParent({ selector, child: h1 });
