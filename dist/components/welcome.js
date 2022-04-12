@@ -1,5 +1,7 @@
-import { createElement, addToParents, clearSelector } from '../utils/dom/index.js';
-import { inGame } from './inGame.js';
+import { clearSelector } from '../utils/dom/clearSelector.js';
+import { addToParent } from '../utils/dom/addToParent.js';
+import { game } from './game.js';
+import { createElement } from '../utils/dom/createElement.js';
 export function welcome({ selector, currentAnswer, currentStats }) {
     clearSelector({ selector });
     currentStats.reset();
@@ -18,12 +20,12 @@ export function welcome({ selector, currentAnswer, currentStats }) {
         }
     });
     button.addEventListener('click', () => {
-        return inGame({
+        return game({
             selector,
             answer: currentAnswer,
             gameState: currentStats
         });
     });
-    addToParents({ selector, child: h1 });
-    addToParents({ selector, child: button });
+    addToParent({ selector, child: h1 });
+    addToParent({ selector, child: button });
 }

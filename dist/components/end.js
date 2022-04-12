@@ -1,4 +1,6 @@
-import { createElement, addToParents, clearSelector } from '../utils/dom/index.js';
+import { clearSelector } from '../utils/dom/clearSelector.js';
+import { addToParent } from '../utils/dom/addToParent.js';
+import { createElement } from '../utils/dom/createElement.js';
 import { welcome } from '../components/welcome.js';
 export function end({ selector, stats: { allAnswers, yourResult } }) {
     clearSelector({ selector });
@@ -16,6 +18,6 @@ export function end({ selector, stats: { allAnswers, yourResult } }) {
         }
     });
     button.addEventListener('click', () => welcome({ selector, currentAnswer: allAnswers, currentStats: yourResult }));
-    addToParents({ selector, child: h1 });
-    addToParents({ selector, child: button });
+    addToParent({ selector, child: h1 });
+    addToParent({ selector, child: button });
 }

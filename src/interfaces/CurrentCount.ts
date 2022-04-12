@@ -1,6 +1,6 @@
 export interface GameStateProps {
   increment: () => number;
-  decrement: () => number;
+  setCount: (num: number) => number;
   reset: () => void;
   getCount: () => number;
 }
