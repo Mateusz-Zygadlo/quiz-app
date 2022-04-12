@@ -3,80 +3,161 @@ export const quizObj = [{
         answers: [{
                 type: 'button',
                 options: {
-                    content: 'one',
-                    class: 'winner'
+                    content: 'one'
                 },
+                isWinner: true
             }, {
                 type: 'button',
                 options: {
-                    content: 'two',
-                    class: 'loser'
-                }
+                    content: 'two'
+                },
+                isWinner: false
             }, {
                 type: 'button',
                 options: {
-                    content: 'three',
-                    class: 'loser'
-                }
+                    content: 'three'
+                },
+                isWinner: false
             }, {
                 type: 'button',
                 options: {
-                    content: 'four',
-                    class: 'loser'
-                }
+                    content: 'four'
+                },
+                isWinner: false
             }]
     }, {
         question: 'This is answer two',
         answers: [{
                 type: 'button',
                 options: {
-                    content: 'one',
-                    class: 'loser'
-                }
+                    content: 'one'
+                },
+                isWinner: true
             }, {
                 type: 'button',
                 options: {
-                    content: 'two',
-                    class: 'winner'
-                }
+                    content: 'two'
+                },
+                isWinner: false
             }, {
                 type: 'button',
                 options: {
-                    content: 'three',
-                    class: 'loser'
-                }
+                    content: 'three'
+                },
+                isWinner: false
             }, {
                 type: 'button',
                 options: {
-                    content: 'four',
-                    class: 'loser'
-                }
+                    content: 'four'
+                },
+                isWinner: false
             }]
     }, {
         question: 'This is three',
         answers: [{
                 type: 'button',
                 options: {
-                    content: 'one',
-                    class: 'loser'
-                }
+                    content: 'one'
+                },
+                isWinner: true
             }, {
                 type: 'button',
                 options: {
-                    content: 'two',
-                    class: 'winner'
-                }
+                    content: 'two'
+                },
+                isWinner: false
             }, {
                 type: 'button',
                 options: {
-                    content: 'three',
-                    class: 'loser'
-                }
+                    content: 'three'
+                },
+                isWinner: false
             }, {
                 type: 'button',
                 options: {
-                    content: 'four',
-                    class: 'loser'
-                }
+                    content: 'four'
+                },
+                isWinner: false
+            }]
+    }, {
+        question: 'This is four',
+        answers: [{
+                type: 'button',
+                options: {
+                    content: 'one'
+                },
+                isWinner: true
+            }, {
+                type: 'button',
+                options: {
+                    content: 'two'
+                },
+                isWinner: false
+            }, {
+                type: 'button',
+                options: {
+                    content: 'three'
+                },
+                isWinner: false
+            }, {
+                type: 'button',
+                options: {
+                    content: 'four'
+                },
+                isWinner: false
+            }]
+    }, {
+        question: 'This is answer five',
+        answers: [{
+                type: 'button',
+                options: {
+                    content: 'one'
+                },
+                isWinner: true
+            }, {
+                type: 'button',
+                options: {
+                    content: 'two'
+                },
+                isWinner: false
+            }, {
+                type: 'button',
+                options: {
+                    content: 'three'
+                },
+                isWinner: false
+            }, {
+                type: 'button',
+                options: {
+                    content: 'four'
+                },
+                isWinner: false
+            }]
+    }, {
+        question: 'This is six',
+        answers: [{
+                type: 'button',
+                options: {
+                    content: 'one'
+                },
+                isWinner: true
+            }, {
+                type: 'button',
+                options: {
+                    content: 'two'
+                },
+                isWinner: false
+            }, {
+                type: 'button',
+                options: {
+                    content: 'three'
+                },
+                isWinner: false
+            }, {
+                type: 'button',
+                options: {
+                    content: 'four'
+                },
+                isWinner: false
             }]
     }];

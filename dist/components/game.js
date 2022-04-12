@@ -19,14 +19,19 @@ export function game({ selector, answer, userStats }) {
             class: "quiz-grid"
         }
     });
-    for (const a of quizObj[answer.getCount()].answers) {
-        const element = createElement({ ...a });
+    let winnerButton = null;
+    for (const { isWinner, ...rest } of quizObj[answer.getCount()].answers) {
+        const element = createElement({ ...rest });
+        if (isWinner) {
+            winnerButton = element;
+        }
         addToParent({ selector: answersContainer, child: element });
     }
     addToParent({ selector, child: h1 });
     addToParent({ selector, child: answersContainer });
     const buttons = qsa('.quiz-grid button');
-    const [losers, winner] = assignmentToGroups({ buttons });
+    const [losers, winner] = assignmentToGroups({ buttons, winnerButton });
+    winnerButton = null;
     winner.addEventListener('click', () => buttonCallback({ userStats, answer, selector, isWinner: true }));
     losers.forEach((button) => {
         button.addEventListener('click', () => buttonCallback({ userStats, answer, selector, isWinner: false }));

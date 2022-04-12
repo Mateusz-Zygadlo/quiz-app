@@ -1,9 +1,8 @@
-import { hasClass } from '../css/hasClass.js';
-export function assignmentToGroups({ buttons }) {
+export function assignmentToGroups({ buttons, winnerButton }) {
     let losers = [];
     let winner = buttons[0];
     buttons.forEach((button) => {
-        return hasClass({ selector: button, name: 'winner' })
+        return button == winnerButton
             ? winner = button
             : losers.push(button);
     });

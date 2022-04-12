@@ -1,16 +1,15 @@
-import { hasClass } from '../css/hasClass.js'
-
 interface AssignmentToGroupsProps {
-  buttons: Element[]
+  buttons: Element[];
+  winnerButton: Element | null;
 }
 
-export function assignmentToGroups({ buttons }: AssignmentToGroupsProps): [Element[], Element] {
+export function assignmentToGroups({ buttons, winnerButton }: AssignmentToGroupsProps): [Element[], Element] {
   let losers: Element[] = []
   let winner: Element = buttons[0];
-  
+
   buttons.forEach((button: Element) => {
-    return hasClass({ selector: button, name: 'winner'}) 
-      ? winner = button 
+    return button == winnerButton
+      ? winner = button
       : losers.push(button)
   })
 

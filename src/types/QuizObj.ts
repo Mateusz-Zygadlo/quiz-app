@@ -1,10 +1,10 @@
 export type QuizObjType = {
-  question: string;
-  answers: {
-      type: string;
-      options: {
-          content: string;
-          class: string;
-      };
-  }[];
+    question: string;
+    answers: {
+        type: string;
+        options: {
+            content: string;
+        };
+        isWinner: boolean;
+    }[];
 }[];
