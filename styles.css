@@ -43,10 +43,6 @@ body {
   background-color: rgb(244, 244, 244);
 }
 
-.container button:focus {
-  background-color: pink
-}
-
 .quiz-grid {
   width: 100%;
   display: grid;
@@ -59,4 +55,8 @@ body {
 
 .quiz-grid button.winner {
   background-color: greenyellow;
+}
+
+.timer { 
+  margin-top: 10px;
 }
