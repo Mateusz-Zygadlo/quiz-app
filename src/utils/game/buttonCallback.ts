@@ -12,10 +12,11 @@ interface ButtonCallbackProps {
   answer: Counter;
   selector: HTMLElement;
   isWinner: boolean;
-  quizObj: QuizObjType;
+  quizObj: QuizObjType[];
+  actualQuiz: Counter;
 }
 
-export async function buttonCallback({ userStats, answer, selector, isWinner, quizObj }: ButtonCallbackProps): Promise<void> {
+export async function buttonCallback({ userStats, answer, selector, isWinner, quizObj, actualQuiz }: ButtonCallbackProps): Promise<void> {
   qsa('.quiz-grid button').forEach((button: any) => {
     button.disabled = true
   })
@@ -27,7 +28,7 @@ export async function buttonCallback({ userStats, answer, selector, isWinner, qu
   qs('.timer').innerText = `${isWinner ? 'correct' : 'incorrect'}`
   await sleep(2000)
   
-  return isGame({ game: answer.getCount(), quizObj}) 
-    ? nextAnswer({ userStats, answer, selector, quizObj })
-    : end({ selector, stats: { answers: answer, userStats }, quizObj })
+  return isGame({ game: answer.getCount(), quizObj: quizObj[actualQuiz.getCount()]}) 
+    ? nextAnswer({ userStats, answer, selector, quizObj, actualQuiz })
+    : end({ selector, stats: { answers: answer, userStats }, quizObj, actualQuiz })
 }

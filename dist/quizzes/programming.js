@@ -1,83 +1,83 @@
-export const math = [{
-        question: '2 + 2 is:',
+export const programming = [{
+        question: '!0 in javascript is:',
         answers: [{
                 type: 'button',
                 options: {
-                    content: '4'
+                    content: 'true'
                 },
                 isWinner: true
             }, {
                 type: 'button',
                 options: {
-                    content: '3'
+                    content: 'false'
                 },
                 isWinner: false
             }, {
                 type: 'button',
                 options: {
-                    content: '5'
+                    content: '0'
                 },
                 isWinner: false
             }, {
                 type: 'button',
                 options: {
-                    content: '7'
+                    content: '1'
                 },
                 isWinner: false
             }]
     },
     {
-        question: '2*2+2 is:',
+        question: '!1 in javascript is:',
         answers: [{
                 type: 'button',
                 options: {
-                    content: '8'
+                    content: 'true'
                 },
                 isWinner: false
             }, {
                 type: 'button',
                 options: {
-                    content: '6'
+                    content: 'false'
                 },
                 isWinner: true
             }, {
                 type: 'button',
                 options: {
-                    content: '10'
+                    content: '0'
                 },
                 isWinner: false
             }, {
                 type: 'button',
                 options: {
-                    content: '12'
+                    content: '1'
                 },
                 isWinner: false
             }]
     },
     {
-        question: '5 sqaure is:',
+        question: '!!5 in javascript is:',
         answers: [{
                 type: 'button',
                 options: {
-                    content: '10'
-                },
-                isWinner: false
-            }, {
-                type: 'button',
-                options: {
-                    content: '15'
-                },
-                isWinner: false
-            }, {
-                type: 'button',
-                options: {
-                    content: '25'
+                    content: 'true'
                 },
                 isWinner: true
             }, {
                 type: 'button',
                 options: {
-                    content: '30'
+                    content: 'false'
+                },
+                isWinner: false
+            }, {
+                type: 'button',
+                options: {
+                    content: '0'
+                },
+                isWinner: false
+            }, {
+                type: 'button',
+                options: {
+                    content: '1'
                 },
                 isWinner: false
             }]

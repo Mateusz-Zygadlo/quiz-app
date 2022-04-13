@@ -8,16 +8,17 @@ interface TimerProps {
   userStats: Counter; 
   answer: Counter;
   selector: HTMLElement;
-  quizObj: QuizObjType;
+  quizObj: QuizObjType[];
+  actualQuiz: Counter;
 }
 
-export function timer({ time, userStats, answer, selector, quizObj }: TimerProps) {
+export function timer({ time, userStats, answer, selector, quizObj, actualQuiz }: TimerProps) {
   let count = time
   let timer = setInterval(() => {
     qs('.timer').innerText = `${count}`
 
     if(!count) {
-      buttonCallback({ userStats, answer, selector, isWinner: false, quizObj })
+      buttonCallback({ userStats, answer, selector, isWinner: false, quizObj, actualQuiz })
       clearInterval(timer)
     }
     count--

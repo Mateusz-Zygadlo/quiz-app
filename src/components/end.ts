@@ -11,10 +11,11 @@ interface EndProps {
     answers: Counter;
     userStats: Counter;
   };
-  quizObj: QuizObjType;
+  quizObj: QuizObjType[];
+  actualQuiz: Counter;
 }
 
-export function end({ selector, stats: { answers, userStats}, quizObj }: EndProps) {
+export function end({ selector, stats: { answers, userStats}, quizObj, actualQuiz }: EndProps) {
   clearSelector({ selector })
   
   const h1 = createElement({
@@ -36,7 +37,8 @@ export function end({ selector, stats: { answers, userStats}, quizObj }: EndProp
       selector,  
       answer: answers, 
       userStats, 
-      quizObj 
+      quizObj,
+      actualQuiz
     })
   })
 

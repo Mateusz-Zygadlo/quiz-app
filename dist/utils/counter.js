@@ -3,6 +3,9 @@ export function counter() {
     function increment() {
         return count += 1;
     }
+    function setCount(num) {
+        return count = num;
+    }
     function reset() {
         count = 0;
     }
@@ -12,6 +15,7 @@ export function counter() {
     return {
         increment,
         reset,
-        getCount
+        getCount,
+        setCount
     };
 }

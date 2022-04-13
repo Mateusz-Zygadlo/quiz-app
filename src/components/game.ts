@@ -7,22 +7,23 @@ import { addToParent } from '../utils/dom/addToParent.js'
 import { assignmentToGroups } from '../utils/game/assignmentToGroups.js'
 import { buttonCallback } from '../utils/game/buttonCallback.js'
 import { createElement } from '../utils/dom/createElement.js'
-import { addClass } from '../utils/css/addClass.js'
+import { addClass } from '../utils/css/addClass.js' 
 
 interface GameProps {
   selector: HTMLElement;
   answer: Counter;
   userStats: Counter;
-  quizObj: QuizObjType;
+  quizObj: QuizObjType[];
+  actualQuiz: Counter;
 }
 
-export function game({ selector, answer, userStats, quizObj }: GameProps) {
+export function game({ selector, answer, userStats, quizObj, actualQuiz }: GameProps) {
   clearSelector({ selector })
   
   const h1 = createElement({
     type: 'h1',
     options: {
-      content: quizObj[answer.getCount()].question
+      content: quizObj[actualQuiz.getCount()][answer.getCount()].question
     }
   });
 
@@ -35,7 +36,7 @@ export function game({ selector, answer, userStats, quizObj }: GameProps) {
 
   let winnerButton: Element | null = null
 
-  for(const { isWinner, ...rest } of quizObj[answer.getCount()].answers) {
+  for(const { isWinner, ...rest } of quizObj[actualQuiz.getCount()][answer.getCount()].answers) {
     const element = createElement({ ...rest })
     if (isWinner) {
       winnerButton = element 
@@ -64,19 +65,20 @@ export function game({ selector, answer, userStats, quizObj }: GameProps) {
     userStats, 
     answer, 
     selector,
-    quizObj
+    quizObj,
+    actualQuiz
   })
 
   winner.addEventListener('click', () => {
     getTimer.clear()
     addClass({ selector: winner, name: 'winner' })
-    buttonCallback({ userStats, answer, selector, isWinner: true, quizObj })
+    buttonCallback({ userStats, answer, selector, isWinner: true, quizObj, actualQuiz })
   })
   losers.forEach((button: Element) => {
     button.addEventListener('click', () => {
       getTimer.clear()
       addClass({ selector: button, name: 'loser' })
-      buttonCallback({ userStats, answer, selector, isWinner: false, quizObj })
+      buttonCallback({ userStats, answer, selector, isWinner: false, quizObj, actualQuiz })
     })
   })
 }

@@ -6,16 +6,18 @@ interface NextAnswerProps {
   userStats: Counter;
   answer: Counter;
   selector: HTMLElement;
-  quizObj: QuizObjType;
+  quizObj: QuizObjType[];
+  actualQuiz: Counter;
 }
 
-export function nextAnswer({ userStats, answer, selector, quizObj }: NextAnswerProps) {
+export function nextAnswer({ userStats, answer, selector, quizObj, actualQuiz }: NextAnswerProps) {
   answer.increment()
   
   return game({
     selector,
     answer,
     userStats,
-    quizObj
+    quizObj,
+    actualQuiz
   })
 }

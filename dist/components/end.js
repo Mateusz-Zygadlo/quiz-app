@@ -2,7 +2,7 @@ import { clearSelector } from '../utils/dom/clearSelector.js';
 import { addToParent } from '../utils/dom/addToParent.js';
 import { createElement } from '../utils/dom/createElement.js';
 import { welcome } from '../components/welcome.js';
-export function end({ selector, stats: { answers, userStats }, quizObj }) {
+export function end({ selector, stats: { answers, userStats }, quizObj, actualQuiz }) {
     clearSelector({ selector });
     const h1 = createElement({
         type: 'h1',
@@ -22,7 +22,8 @@ export function end({ selector, stats: { answers, userStats }, quizObj }) {
             selector,
             answer: answers,
             userStats,
-            quizObj
+            quizObj,
+            actualQuiz
         });
     });
     addToParent({ selector, child: h1 });
