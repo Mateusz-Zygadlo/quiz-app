@@ -3,7 +3,7 @@ export type QuizObjType = {
     answers: {
         type: string;
         options: {
-            content: string;
+            [key: string]: string;
         };
         isWinner: boolean;
     }[];

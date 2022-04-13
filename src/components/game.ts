@@ -7,7 +7,9 @@ import { addToParent } from '../utils/dom/addToParent.js'
 import { assignmentToGroups } from '../utils/game/assignmentToGroups.js'
 import { buttonCallback } from '../utils/game/buttonCallback.js'
 import { createElement } from '../utils/dom/createElement.js'
-import { addClass } from '../utils/css/addClass.js' 
+import { addClass } from '../utils/css/addClass.js'
+import { progressbar } from '../utils/game/progressbar.js' 
+import { clearIntervals } from '../utils/dom/clearIntervals.js'
 
 interface GameProps {
   selector: HTMLElement;
@@ -50,15 +52,30 @@ export function game({ selector, answer, userStats, quizObj, actualQuiz }: GameP
   const timerDiv = createElement({
     type: 'div',
     options: {
-      class: 'timer'
+      class: 'timer',
+      content: '10'
+    }
+  })
+
+  const progress = createElement({
+    type: 'progress',
+    options: {
+      value: '0',
+      max: '100'
     }
   })
 
   addToParent({  selector, child: timerDiv })
+  addToParent({ selector, child: progress })
 
   const buttons = qsa('.quiz-grid button')
   const [losers, winner] = assignmentToGroups({ buttons, winnerButton })
   winnerButton = null
+
+  const progressTimer = progressbar({
+    delay: 10,
+    progressbar: progress,
+  })
 
   const getTimer = timer({
     time: 10,
@@ -66,17 +83,18 @@ export function game({ selector, answer, userStats, quizObj, actualQuiz }: GameP
     answer, 
     selector,
     quizObj,
-    actualQuiz
+    actualQuiz,
+    clearProgressbar: progressTimer
   })
 
   winner.addEventListener('click', () => {
-    getTimer.clear()
+    clearIntervals({ progressTimer, getTimer })
     addClass({ selector: winner, name: 'winner' })
     buttonCallback({ userStats, answer, selector, isWinner: true, quizObj, actualQuiz })
   })
   losers.forEach((button: Element) => {
     button.addEventListener('click', () => {
-      getTimer.clear()
+      clearIntervals({ progressTimer, getTimer })
       addClass({ selector: button, name: 'loser' })
       buttonCallback({ userStats, answer, selector, isWinner: false, quizObj, actualQuiz })
     })

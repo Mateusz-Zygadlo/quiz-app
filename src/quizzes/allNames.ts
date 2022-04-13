@@ -4,13 +4,15 @@ export const allNames: AllNamesType = [
   {
     type: 'button',
     options: {
-      content: 'math'
+      content: 'math',
+      title: 'math',
     },
     index: 0,
   }, {
     type: 'button',
     options: {
-      content: 'programming'
+      content: 'programming',
+      title: 'programming',
     },
     index: 1
   }

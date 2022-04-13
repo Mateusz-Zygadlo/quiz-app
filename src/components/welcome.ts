@@ -26,10 +26,17 @@ export function welcome({ selector, answer, userStats, quizObj, actualQuiz }: We
     }
   })
 
+  const p = createElement({
+    type: 'p',
+    options: {
+      content: 'Choose quiz'
+    }
+  })
+
   const buttonContainer = createElement({
     type: 'div',
     options: {
-      class: 'start-button-container'
+      class: 'quiz-grid'
     }
   })
 
@@ -51,5 +58,6 @@ export function welcome({ selector, answer, userStats, quizObj, actualQuiz }: We
   }
 
   addToParent({ selector, child: h1 })
+  addToParent({ selector, child: p })
   addToParent({ selector, child: buttonContainer })
 }

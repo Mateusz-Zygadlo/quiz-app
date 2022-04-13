@@ -10,18 +10,22 @@ interface TimerProps {
   selector: HTMLElement;
   quizObj: QuizObjType[];
   actualQuiz: Counter;
+  clearProgressbar: {
+    clear: () => void
+  };
 }
 
-export function timer({ time, userStats, answer, selector, quizObj, actualQuiz }: TimerProps) {
+export function timer({ time, userStats, answer, selector, quizObj, actualQuiz, clearProgressbar }: TimerProps) {
   let count = time
   let timer = setInterval(() => {
+    count--
     qs('.timer').innerText = `${count}`
 
     if(!count) {
       buttonCallback({ userStats, answer, selector, isWinner: false, quizObj, actualQuiz })
+      clearProgressbar.clear()
       clearInterval(timer)
     }
-    count--
   }, 1000)
 
   function clear() {

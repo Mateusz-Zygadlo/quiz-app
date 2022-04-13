@@ -1,7 +1,7 @@
 export type AllNamesType = {
   type: string;
   options: {
-      content: string;
+      [key: string]: string;
   };
   index: number;
 }[];
