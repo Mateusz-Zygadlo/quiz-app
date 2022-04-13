@@ -59,13 +59,17 @@ body {
   padding: 3px 15px;
   font-size: 20px;
   width: 100%;
-  margin-inline: auto;
+  margin: 5px 0;
   min-height: 50px;
   background: none;
   border: 1px solid black;
   transition: background 0.3s ease-in-out;
   cursor: pointer;
   word-break: break-word;
+}
+
+.quiz-container button.smaller {
+  width: min(100%, 250px);
 }
 
 .quiz-container button:hover {
@@ -109,4 +113,46 @@ body {
 .quiz-container .timer-container .timer { 
   margin-top: 10px;
   font-size: 20px;
+}
+
+.quiz-container form {
+  margin-top: 20px;
+}
+
+.quiz-container fieldset {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+  flex-direction: column;
+}
+
+.quiz-container form fieldset legend {
+  padding: 2px 5px;
+}
+
+.quiz-container form fieldset input[type="text"] {
+  margin: 10px 2px 10px 10px;
+  text-indent: 10px;
+  padding: 3px 0 3px 5px;
+  border: 1px solid black;
+}
+
+.quiz-container form fieldset input[type="submit"] {
+  margin-left: 5px;
+  padding: 3px 5px;
+  border: 1px solid black;
+}
+
+.quiz-container form fieldset p {
+  font-size: 13px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 20px;
+}
+
+.quiz-container h1.thanks {
+  font-size: 30px;
+  margin-top: 20px;
 }

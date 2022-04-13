@@ -5,6 +5,7 @@ import { addToParent } from '../utils/dom/addToParent.js'
 import { game } from './game.js';
 import { createElement } from '../utils/dom/createElement.js'
 import { allNames } from '../quizzes/allNames.js'
+import { scoreboard } from './scoreboard.js'
 
 interface WelcomeProps {
   selector: HTMLElement;
@@ -63,7 +64,26 @@ export function welcome({
     addToParent({ selector: buttonContainer, child: quizButton })
   }
 
+  const viewScoreboard = createElement({
+    type: 'button',
+    options: {
+      content: 'view scoreboard',
+      class: 'smaller'
+    }
+  })
+
+  viewScoreboard.addEventListener('click', (): void => {
+    scoreboard({
+      selector, 
+      answer, 
+      userStats, 
+      quizObj, 
+      actualQuiz 
+    })
+  })
+
   addToParent({ selector, child: h1 })
   addToParent({ selector, child: p })
   addToParent({ selector, child: buttonContainer })
+  addToParent({ selector, child:viewScoreboard })
 }

@@ -33,7 +33,7 @@ export async function buttonCallback({
   }
   
   qs('.quiz-container .timer-container .timer').innerText = `${isWinner ? 'correct' : 'incorrect'}`
-  await sleep(2000)
+  await sleep(500)
 
   const standardProps = {
     selector, 
