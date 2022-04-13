@@ -10,7 +10,13 @@ interface NextAnswerProps {
   actualQuiz: Counter;
 }
 
-export function nextAnswer({ userStats, answer, selector, quizObj, actualQuiz }: NextAnswerProps) {
+export function nextAnswer({ 
+  userStats, 
+  answer, 
+  selector, 
+  quizObj, 
+  actualQuiz 
+}: NextAnswerProps) {
   answer.increment()
   
   return game({

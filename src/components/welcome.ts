@@ -14,7 +14,13 @@ interface WelcomeProps {
   actualQuiz: Counter
 }
 
-export function welcome({ selector, answer, userStats, quizObj, actualQuiz }: WelcomeProps) {
+export function welcome({ 
+  selector, 
+  answer, 
+  userStats, 
+  quizObj, 
+  actualQuiz 
+}: WelcomeProps) {
   clearSelector({ selector })
   answer.reset()
   userStats.reset()
@@ -36,7 +42,7 @@ export function welcome({ selector, answer, userStats, quizObj, actualQuiz }: We
   const buttonContainer = createElement({
     type: 'div',
     options: {
-      class: 'quiz-grid'
+      class: 'grid'
     }
   })
 

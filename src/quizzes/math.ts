@@ -5,7 +5,7 @@ export const math: QuizObjType = [{
   answers: [{
     type: 'button',
     options: {
-      content: '4'
+      content: '4',
     },
     isWinner: true
   }, {

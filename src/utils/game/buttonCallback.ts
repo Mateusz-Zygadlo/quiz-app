@@ -16,8 +16,15 @@ interface ButtonCallbackProps {
   actualQuiz: Counter;
 }
 
-export async function buttonCallback({ userStats, answer, selector, isWinner, quizObj, actualQuiz }: ButtonCallbackProps): Promise<void> {
-  qsa('.quiz-grid button').forEach((button: any) => {
+export async function buttonCallback({ 
+  userStats, 
+  answer, 
+  selector, 
+  isWinner, 
+  quizObj, 
+  actualQuiz 
+}: ButtonCallbackProps): Promise<void> {
+  qsa('.quiz-container .grid button').forEach((button: any) => {
     button.disabled = true
   })
   
@@ -25,10 +32,29 @@ export async function buttonCallback({ userStats, answer, selector, isWinner, qu
     userStats.increment()
   }
   
-  qs('.timer').innerText = `${isWinner ? 'correct' : 'incorrect'}`
+  qs('.quiz-container .timer-container .timer').innerText = `${isWinner ? 'correct' : 'incorrect'}`
   await sleep(2000)
+
+  const standardProps = {
+    selector, 
+    quizObj, 
+    actualQuiz 
+  }
   
-  return isGame({ game: answer.getCount(), quizObj: quizObj[actualQuiz.getCount()]}) 
-    ? nextAnswer({ userStats, answer, selector, quizObj, actualQuiz })
-    : end({ selector, stats: { answers: answer, userStats }, quizObj, actualQuiz })
+  return isGame({ 
+    game: answer.getCount(), 
+    quizObj: quizObj[actualQuiz.getCount()]
+  }) 
+    ? nextAnswer({
+        ...standardProps, 
+        userStats, 
+        answer
+      })
+    : end({ 
+        ...standardProps,
+        stats: { 
+          answers: answer, 
+          userStats 
+        }
+      })
 }

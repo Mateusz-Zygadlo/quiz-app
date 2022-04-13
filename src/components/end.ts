@@ -15,7 +15,12 @@ interface EndProps {
   actualQuiz: Counter;
 }
 
-export function end({ selector, stats: { answers, userStats}, quizObj, actualQuiz }: EndProps) {
+export function end({ 
+  selector, 
+  stats: { answers, userStats}, 
+  quizObj, 
+  actualQuiz 
+}: EndProps) {
   clearSelector({ selector })
   
   const h1 = createElement({
@@ -27,8 +32,7 @@ export function end({ selector, stats: { answers, userStats}, quizObj, actualQui
   const button = createElement({
     type: 'button',
     options: {
-      content: 'back to home page',
-      id: 'end'
+      content: 'back to home page'
     }
   })
 

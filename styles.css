@@ -5,24 +5,6 @@
   user-select: none;
 }
 
-body {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.container {
-  width: min(100% - 20px, 700px);
-  margin-inline: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: 40px 0;
-}
-
 progress {
   background: none;
 }
@@ -35,90 +17,96 @@ progress::-webkit-progress-value {
   background-color: lightcoral
 }
 
-.container progress {
+body {
   width: 100%;
-  height: 3px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.container h1 {
+.quiz-container {
+  width: min(100% - 20px, 600px);
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 40px 0;
+}
+
+.quiz-container h1 {
   font-size: 50px;
   font-weight: 100;
   text-align: center;
   margin-bottom: 10px
 }
 
-.container p {
+.quiz-container p {
   margin-bottom: 5px;
   font-size: 25px;
 }
 
-.container button {
-  padding: 3px 15px;
-  font-size: 20px;
-  background: none;
-  border: 1px solid black;
-  transition: background 0.3s ease-in-out;
-  cursor: pointer;
-  margin: 0 auto;
-}
-
-.disabled {
-  cursor: not-allowed;
-  pointer-events: none;
-}
-
-.container button:hover {
-  background-color: rgb(244, 244, 244);
-}
-
-.quiz-grid {
+.quiz-container .grid {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
   grid-gap: 10px;
+  align-items: start;
 }
 
-.quiz-grid button {
+.quiz-container button {
+  padding: 3px 15px;
+  font-size: 20px;
   width: 100%;
   margin-inline: auto;
-  aspect-ratio: 5/1;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  min-height: 50px;
+  background: none;
+  border: 1px solid black;
+  transition: background 0.3s ease-in-out;
+  cursor: pointer;
+  word-break: break-word;
 }
 
-.quiz-grid button:disabled {
+.quiz-container button:hover {
+  background-color: rgb(244, 244, 244);
+}
+
+.quiz-container button:disabled {
   color: black;
   opacity: 0.3;
   cursor: default;
 }
 
-.quiz-grid button:disabled.winner,
-.quiz-grid button.winner {
+.quiz-container button:disabled.winner,
+.quiz-container button.winner {
   opacity: 1;
   background-color: green;
   color: white;
 }
 
-.quiz-grid button:disabled.loser,
-.quiz-grid button.loser {
+.quiz-container button:disabled.loser,
+.quiz-container button.loser {
   opacity: 1;
   background-color: red;
   color: white;
 }
 
-.timer { 
-  margin-top: 10px;
-}
-
-.button-container {
-  margin-top: 10px;
+.quiz-container .timer-container {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 10px;
 }
 
-.button-container button {
-  margin: 5px 0;
+.quiz-container .timer-container progress {
+  width: 100%;
+  height: 3px;
+}
+
+.quiz-container .timer-container .timer { 
+  margin-top: 10px;
+  font-size: 20px;
 }

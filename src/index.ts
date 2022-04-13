@@ -6,13 +6,12 @@ import { counter } from './utils/counter.js';
 import { math } from './quizzes/math.js'
 import { programming } from './quizzes/programming.js'
 
-const container = qs('.container')
+const container = qs('.quiz-container')
 const answer = counter()
 const userStats = counter()
 
 const quizObj: QuizObjType[] = [math, programming]
 const actualQuiz = counter()
-actualQuiz.setCount(1)
 
 welcome({ 
   selector: container, 
