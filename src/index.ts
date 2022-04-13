@@ -6,14 +6,13 @@ import { setListenerForThemeMode, changeThemeMode } from './themeMode.js'
 
 import { math } from './quizzes/math.js'
 import { programming } from './quizzes/programming.js'
-import { testQuiz } from './quizzes/testQuiz.js'
 
 const container = qs('.quiz-container')
 const themeElement = qs('.theme')
 const answer = counter()
 const userStats = counter()
 
-const quizObj: QuizObjType[] = [math, programming, testQuiz]
+const quizObj: QuizObjType[] = [math, programming]
 const actualQuiz = counter()
 
 welcome({ 
