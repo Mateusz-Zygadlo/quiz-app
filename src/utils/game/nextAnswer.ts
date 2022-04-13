@@ -10,20 +10,8 @@ interface NextAnswerProps {
   actualQuiz: Counter;
 }
 
-export function nextAnswer({ 
-  userStats, 
-  answer, 
-  selector, 
-  quizObj, 
-  actualQuiz 
-}: NextAnswerProps) {
-  answer.increment()
+export function nextAnswer(props: NextAnswerProps): void {
+  props.answer.increment()
   
-  return game({
-    selector,
-    answer,
-    userStats,
-    quizObj,
-    actualQuiz
-  })
+  return game({ ...props })
 }

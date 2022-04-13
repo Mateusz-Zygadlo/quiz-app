@@ -3,7 +3,11 @@ interface ProgressbarProps {
   progressbar: HTMLElement;
 }
 
-export function progressbar({ delay, progressbar }: ProgressbarProps) {
+type ProgressbarType = {
+  clear: () => void;
+}
+
+export function progressbar({ delay, progressbar }: ProgressbarProps): ProgressbarType {
   let time = delay
   let timer =   setInterval(() => {
     let value: number = Number(progressbar.getAttribute('value'))

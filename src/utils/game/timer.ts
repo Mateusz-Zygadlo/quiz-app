@@ -15,6 +15,10 @@ interface TimerProps {
   };
 }
 
+type Timer = {
+  clear: () => void;
+}
+
 export function timer({ 
   time, 
   userStats, 
@@ -23,7 +27,7 @@ export function timer({
   quizObj, 
   actualQuiz, 
   progressTimer 
-}: TimerProps) {
+}: TimerProps): Timer {
   let count = time
   let timer = setInterval(() => {
     count--

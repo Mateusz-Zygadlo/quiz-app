@@ -1,17 +1,10 @@
-/*
-  key: allGames
-  value: [
-    {
-      username,
-      result,
-      date
-    }
-  ]
-*/
-
 const standardScoreboard = {
-  name: 'scoreboard',
-  gamesHistory: []
+  gamesHistory: [{
+    username: 'username',
+    result: 'result',
+    date: 'date',
+    quizName: 'quizName'
+  }]
 }
 
 interface SaveToScoreboardProps {

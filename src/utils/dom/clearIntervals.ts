@@ -1,6 +1,6 @@
 interface ClearIntervalsProps {
   [key: string]: {
-    clear: () => void
+    clear: () => void;
   }
 }
 

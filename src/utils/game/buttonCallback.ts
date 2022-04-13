@@ -7,6 +7,8 @@ import { nextAnswer } from '../../utils/game/nextAnswer.js'
 import { isGame } from '../../utils/game/isGame.js'
 import { sleep } from '../sleep.js'
 
+import { APP_CONFIG } from '../../config.js'
+
 interface ButtonCallbackProps {
   userStats: Counter;
   answer: Counter;
@@ -24,6 +26,8 @@ export async function buttonCallback({
   quizObj, 
   actualQuiz 
 }: ButtonCallbackProps): Promise<void> {
+  const { SLEEP_IN_SECONDS } = APP_CONFIG 
+
   qsa('.quiz-container .grid button').forEach((button: any) => {
     button.disabled = true
   })
@@ -33,7 +37,7 @@ export async function buttonCallback({
   }
   
   qs('.quiz-container .timer-container .timer').innerText = `${isWinner ? 'correct' : 'incorrect'}`
-  await sleep(500)
+  await sleep(SLEEP_IN_SECONDS * 1000)
 
   const standardProps = {
     selector, 

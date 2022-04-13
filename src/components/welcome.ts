@@ -12,7 +12,7 @@ interface WelcomeProps {
   answer: Counter;
   userStats: Counter;
   quizObj: QuizObjType[];
-  actualQuiz: Counter
+  actualQuiz: Counter;
 }
 
 export function welcome({ 
@@ -21,7 +21,7 @@ export function welcome({
   userStats, 
   quizObj, 
   actualQuiz 
-}: WelcomeProps) {
+}: WelcomeProps): void {
   clearSelector({ selector })
   answer.reset()
   userStats.reset()
@@ -47,18 +47,20 @@ export function welcome({
     }
   })
 
+  const standardProps = {
+    selector, 
+    answer, 
+    userStats, 
+    quizObj, 
+    actualQuiz,
+  }
+
   for(let { index, ...rest } of allNames) {
     const quizButton = createElement({ ...rest })
 
     quizButton.addEventListener('click', () => {
       actualQuiz.setCount(index)
-      return game({ 
-        selector, 
-        answer, 
-        userStats, 
-        quizObj, 
-        actualQuiz,
-      })
+      return game({ ...standardProps })
     })
 
     addToParent({ selector: buttonContainer, child: quizButton })
@@ -73,13 +75,7 @@ export function welcome({
   })
 
   viewScoreboard.addEventListener('click', (): void => {
-    scoreboard({
-      selector, 
-      answer, 
-      userStats, 
-      quizObj, 
-      actualQuiz 
-    })
+    scoreboard({ ...standardProps })
   })
 
   addToParent({ selector, child: h1 })

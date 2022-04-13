@@ -32,7 +32,7 @@ export function gameEventButton({
   selector,
   quizObj,
   actualQuiz
-}: EventButtonsProps) {
+}: EventButtonsProps): void {
   arrOfSelectors.forEach((btn: Element) => {
     btn.addEventListener(type, () => {
       clearIntervals({ progressTimer, getTimer })

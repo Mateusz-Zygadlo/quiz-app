@@ -9,6 +9,8 @@ import { createElement } from '../utils/dom/createElement.js'
 import { progressbar } from '../utils/game/progressbar.js' 
 import { gameEventButton } from '../utils/game/gameEventButtons.js'
 
+import { APP_CONFIG } from '../config.js'
+
 interface GameProps {
   selector: HTMLElement;
   answer: Counter;
@@ -23,8 +25,10 @@ export function game({
   userStats, 
   quizObj, 
   actualQuiz 
-}: GameProps) {
+}: GameProps): void {
   clearSelector({ selector })
+
+  const { DELAY_IN_MILISECONS, TIME_IN_SECONDS } = APP_CONFIG
   
   const h1 = createElement({
     type: 'h1',
@@ -64,7 +68,7 @@ export function game({
     type: 'p',
     options: {
       class: 'timer',
-      content: '10'
+      content: `${TIME_IN_SECONDS}`
     }
   })
 
@@ -86,7 +90,7 @@ export function game({
   winnerButtons.length = 0
 
   const progressTimer = progressbar({
-    delay: 10,
+    delay: DELAY_IN_MILISECONS,
     progressbar: progress,
   })
 
@@ -100,7 +104,7 @@ export function game({
 
   const getTimer = timer({
     ...gameStandardsProps,
-    time: 10,
+    time: TIME_IN_SECONDS,
     progressTimer,
   })
 

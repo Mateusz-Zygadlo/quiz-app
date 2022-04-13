@@ -15,5 +15,12 @@ export const allNames: AllNamesType = [
       title: 'programming',
     },
     index: 1
+  }, {
+    type: 'button',
+    options: {
+      content: 'testowe pytania',
+      title: 'testowe pytania'
+    },
+    index: 2
   }
 ]
